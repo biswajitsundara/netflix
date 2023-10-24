@@ -1,11 +1,33 @@
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../utils/firebase";
+import { useSelector } from "react-redux";
+
 const Header = () => {
+
+  const navigate = useNavigate();
+  const user = useSelector(store => store.user)
+  
+  const handleSignout = () =>{
+    signOut(auth).then(() => {
+      navigate('/');
+    }).catch((error) => {
+      // An error happened.
+      navigate('/error');
+    });
+    
+  }
   return (
-    <div className="absolute z-10">
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <img
-        className="w-56 px-8 py-2 bg-gradient-to-b from-black"
+        className="w-56 "
         src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
         alt=""
       />
+      { user && <div className="pt-3 flex">
+        <img src={user.photoURL} alt="" className="w-20 h-14"/>
+        <button className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded h-10" onClick={handleSignout}>Sign Out</button>
+      </div>}
     </div>
   );
 };
