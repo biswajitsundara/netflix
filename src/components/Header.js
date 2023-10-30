@@ -50,6 +50,7 @@ const Header = () => {
         alt=""
       />
       { user && <div className="pt-3 flex">
+        <button className="py-2 px-4 bg-gray-700 text-white rounded-md h-10 mr-2 font-bold">Search</button>
         <img src={user.photoURL} alt="" className="w-15 h-10 rounded mr-2"/>
         <button className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded h-10" onClick={handleSignout}>Sign Out</button>
       </div>}
