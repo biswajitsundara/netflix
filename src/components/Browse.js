@@ -5,6 +5,7 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useTopratedMovies from "../hooks/useTopratedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import SearchPage from "./SearchPage";
 
 
 
@@ -17,6 +18,7 @@ const Browse = () => {
 
   return <>
   <Header />
+  <SearchPage />
   <MainContainer />
   <SecondaryContainer />
   {
