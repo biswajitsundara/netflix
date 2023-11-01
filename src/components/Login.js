@@ -9,7 +9,7 @@ import { auth } from "../utils/firebase";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import {addUser} from '../utils/userSlice';
-import { USER_AVATAAR } from "../utils/constants";
+import { BG_IMAGE_URL, USER_AVATAAR } from "../utils/constants";
 
 
 const Login = () => {
@@ -77,7 +77,7 @@ const Login = () => {
       <Header />
       <div className="absolute bg-fixed bg-cover">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/a73c4363-1dcd-4719-b3b1-3725418fd91d/fe1147dd-78be-44aa-a0e5-2d2994305a13/IN-en-20231016-popsignuptwoweeks-perspective_alpha_website_small.jpg"
+          src={BG_IMAGE_URL}
           alt="bg"
         />
       </div>
