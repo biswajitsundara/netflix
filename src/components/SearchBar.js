@@ -1,3 +1,5 @@
+import lang from "../utils/langConstrants";
+
 const SearchBar = () => {
     return (
       <div className="pt-[10%] flex justify-center">
@@ -5,9 +7,9 @@ const SearchBar = () => {
           <input
             type="text"
             className="p-4 m-4 col-span-9"
-            placeholder="What would you like to watch today?"
+            placeholder={lang.hindi.searchPlaceHolder}
           />
-          <button className="py-2 px-4 m-4 col-span-3 bg-red-700 text-white rounded-md">Search</button>
+          <button className="py-2 px-4 m-4 col-span-3 bg-red-700 text-white rounded-md">{lang.hindi.search}</button>
         </form>
       </div>
     );
