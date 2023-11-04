@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import {addUser, removeUser} from '../utils/userSlice';
 import { LOGO } from "../utils/constants";
 import { toggleSearchView } from "../utils/searchSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
 
@@ -27,6 +29,10 @@ const Header = () => {
 
   const handleSearch = () => {
      dispatch(toggleSearchView());
+  }
+
+  const handleLanguageChange = (e) =>{
+    dispatch(changeLanguage(e.target.value));
   }
 
   useEffect(()=>{
@@ -55,10 +61,10 @@ const Header = () => {
         alt=""
       />
       { user && <div className="pt-3 flex">
-        <select name="" id="" className="h-10 rounded mr-2 bg-gray-700 text-white px-1">
-          <option value="en">English</option>
-          <option value="hindi">Hindi</option>
-          <option value="spanish">Spanish</option>
+        <select name="" id="" className="h-10 rounded mr-2 bg-gray-700 text-white px-1" onChange={handleLanguageChange}>
+          {SUPPORTED_LANGUAGES.map((lang)=>(
+             <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
+          ))}
         </select>
         <button className="py-2 px-4 bg-gray-700 text-white rounded-md h-10 mr-2 font-bold" onClick={handleSearch}>Search</button>
         <img src={user.photoURL} alt="" className="w-15 h-10 rounded mr-2"/>
