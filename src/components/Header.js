@@ -62,10 +62,10 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-56 " src={LOGO} alt="" />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row md:px-0 justify-between">
+      <img className="w-24 md:w-56 mx-auto md:mx-0" src={LOGO} alt="" />
       {user && (
-        <div className="pt-3 flex">
+        <div className="pt-3 flex justify-center">
           {searchDisplayed.showSearch && (
             <select
               name=""
@@ -82,14 +82,14 @@ const Header = () => {
           )}
 
           <button
-            className="py-2 px-4 bg-gray-700 text-white rounded-md h-10 mr-2 font-bold"
+            className="py-1 px-3 md:py-2 md:px-4 bg-gray-700 text-white rounded-md md:h-10 mr-2 md:font-bold"
             onClick={handleSearch}
           >
             {searchDisplayed.showSearch ? 'Home' : 'Search'}
           </button>
-          <img src={user.photoURL} alt="" className="w-15 h-10 rounded mr-2" />
+          <img src={user.photoURL} alt="" className="w-15 h-10 rounded mr-2 hidden md:block" />
           <button
-            className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded h-10"
+            className="bg-red-700 hover:bg-red-800 text-white md:font-bold py-1 px-3 md:py-2 md:px-4 rounded md:h-10"
             onClick={handleSignout}
           >
             Sign Out

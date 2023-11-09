@@ -6,13 +6,12 @@ const SearchPage = () => {
   return (
     <>
       <div className="fixed -z-10">
-        <img
-          src={BG_IMAGE_URL}
-          alt="bg"
-        />
+        <img className="h-screen object-cover w-screen" src={BG_IMAGE_URL} alt="bg" />
       </div>
-      <SearchBar />
-      <MovieSuggestions />
+      <div>
+        <SearchBar />
+        <MovieSuggestions />
+      </div>
     </>
   );
 };
